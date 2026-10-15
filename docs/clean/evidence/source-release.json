@@ -1,0 +1,44 @@
+{
+  "dateLocal": "2026-10-16",
+  "distribution": "source-only",
+  "productSource": {
+    "unchangedFilesComparedToPreviousVerifiedVersion": 8037,
+    "SHA256": "a736cb117949fe30934aef4be5fb91ae90739c90635c0f068bbaa2c5038a0006",
+    "buildCopyMatchesPublishedProductSource": true
+  },
+  "dependencyInstallation": {
+    "passed": true,
+    "frozenLockfile": true,
+    "networkUsed": false,
+    "note": "Used previously populated package store and metadata cache. Initial attempts without explicit metadata-cache selection failed; policies were not disabled."
+  },
+  "officialBuild": {
+    "passed": true,
+    "durationSeconds": 492.203,
+    "clientArtifacts": 348,
+    "toolchain": {
+      "node": "24.21.0",
+      "pnpm": "11.28.5"
+    },
+    "archiveBuildProvenance": "7c23a865afbb276a586260873b2b201aab8cec88"
+  },
+  "sdkContractTests": {
+    "passed": 110,
+    "failed": 4,
+    "total": 114,
+    "unresolved": [
+      "Vitest module runner does not support import.meta.resolve in two launch cases.",
+      "Two upstream plugin fixtures expect an implicit deepseek-official adapter that this cleaned runtime rejects."
+    ]
+  },
+  "releaseChecks": {
+    "scriptsParsed": 9,
+    "documentationPowerShellSnippetsParsed": 8,
+    "javascriptFilesParsed": 7,
+    "sourceEntryPathsResolved": true,
+    "compiledSdkModuleImported": true,
+    "programsWeightsPayloadAndNodeModulesInGit": false
+  },
+  "newSourceInstallationOnCleanVM": "NOT independently rerun. Previous runtime VM tests are historical evidence, not certification of the new manual source-install procedure.",
+  "securityAudit": "Known-private-value and pattern scan passed before commit; final full-object audit and SHA are supplied in the local handoff."
+}
