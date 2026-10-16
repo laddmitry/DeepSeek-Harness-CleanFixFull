@@ -149,6 +149,21 @@ function buildPlan(root) {
   const base = fs.realpathSync(root);
   const directories = [], links = [];
   let files = 0, hardLinkedFiles = 0;
+  const source=path.join(root,'source','deepseek-harness-master');
+  if (!same(fs.realpathSync(source),source)) throw Error('Source directory is redirected');
+  const manifest=path.join(root,'kit','source-version.json');
+  const manifestStat=fs.lstatSync(manifest);
+  if(!manifestStat.isFile()||manifestStat.isSymbolicLink()) throw Error('Source version manifest is not ordinary: '+manifest);
+  const sourceHashes=JSON.parse(fs.readFileSync(manifest,'utf8'));
+  const versionFiles=['pnpm-lock.yaml','pnpm-workspace.yaml','package.json'];
+  if(Object.keys(sourceHashes).sort().join('|')!==versionFiles.sort().join('|')||Object.values(sourceHashes).some(v=>typeof v!=='string'||!/^[a-f0-9]{64}$/.test(v)))throw Error('Invalid reviewed source version manifest');
+  for(const [name,expectedHash] of Object.entries(sourceHashes)) {
+    const p=path.join(source,name),st=fs.lstatSync(p);
+    if(!st.isFile()||st.isSymbolicLink()) throw Error('Source version file is not ordinary: '+p);
+    // Pin UTF-8 source content independently of Git's LF/CRLF checkout setting.
+    const actual=crypto.createHash('sha256').update(fs.readFileSync(p,'utf8').replace(/\r\n/g,'\n')).digest('hex');
+    if(actual!==expectedHash) throw Error('Source dependency/configuration version changed: '+p);
+  }
   function knownMissingOptional(p, originalError) {
     const store = path.join(root,'source','deepseek-harness-master','node_modules','.pnpm');
     const reviewed = [
@@ -234,18 +249,7 @@ function buildPlan(root) {
       }
     }
   }
-  const source=path.join(root,'source','deepseek-harness-master');
-  if (!same(fs.realpathSync(source),source)) throw Error('Source directory is redirected');
-  const sourceHashes=JSON.parse(fs.readFileSync(path.join(root,'kit','source-version.json'),'utf8'));
-  const versionFiles=['pnpm-lock.yaml','pnpm-workspace.yaml','package.json'];
-  if(Object.keys(sourceHashes).sort().join('|')!==versionFiles.sort().join('|')||Object.values(sourceHashes).some(v=>typeof v!=='string'||!/^[a-f0-9]{64}$/.test(v)))throw Error('Invalid reviewed source version manifest');
-  for(const [name,expectedHash] of Object.entries(sourceHashes)) {
-    const p=path.join(source,name),st=fs.lstatSync(p);
-    if(!st.isFile()||st.isSymbolicLink()) throw Error('Source version file is not ordinary: '+p);
-    const actual=crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
-    if(actual!==expectedHash) throw Error('Source dependency/configuration version changed: '+p);
-  }
-  return {revision:'2.2',directories,links,files,hardLinkedFiles,sourceHashes};
+  return {revision:'2.3',directories,links,files,hardLinkedFiles,sourceHashes};
 }
 try { process.stdout.write(JSON.stringify(buildPlan(process.argv[1]))); }
 catch(e) { console.error(e.message); process.exitCode=1; }
