@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "location": "git:605a34c61f8f494df9c06c5fb00aa1f46764daab",
+    "rule": "unexpected-author-or-committer",
+    "valueSHA256": "6128bba8704ca1a08eb7307b9719f4b83cbaf51c5ff4138c6b46df11ec03e4aa",
+    "reason": "Reviewed generic maintainer identity with example.invalid email; no personal author data."
+  },
+  {
+    "location": "git:f0e52b63e4d231ba6f48c33c3f58c7aa0063ba30",
+    "rule": "unexpected-author-or-committer",
+    "valueSHA256": "6128bba8704ca1a08eb7307b9719f4b83cbaf51c5ff4138c6b46df11ec03e4aa",
+    "reason": "Reviewed generic maintainer identity with example.invalid email; no personal author data. The second local object is an unreferenced amend predecessor."
+  },
+  {
+    "location": ".git/config",
+    "rule": "remote-present-before-manual-publication",
+    "valueSHA256": "f85c2dd4af0222c5e618245951b27aae052428ec74d6531035b049055157a860",
+    "reason": "User already published this repository; reviewed exact public HTTPS GitHub origin without embedded credentials. This exception does not permit another URL."
+  }
+]

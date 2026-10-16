@@ -1,0 +1,186 @@
+{
+  "dateLocal": "2026-10-16",
+  "sourceCodeCommit": "605a34c61f8f494df9c06c5fb00aa1f46764daab",
+  "distribution": "source-only",
+  "os": {
+    "edition": "Windows 11 Pro x64",
+    "build": "26300.9457",
+    "displayVersion": "26H2",
+    "freshIsoInstallation": true
+  },
+  "sourceTransfer": {
+    "basePublishedCommit": "af6ff962aa09e1015bf1743eda0538556b5e1ae2",
+    "baseTree": "09d5c703efa9c27f6210691f83694614cb02ecd6",
+    "method": "Git-verified bundle plus local repair bundle",
+    "directGitHubCloneValidated": false,
+    "tlsValidationDisabled": false,
+    "hostDependenciesOrBuiltRuntimeCopied": false
+  },
+  "tools": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "powerShell": "7.6.6",
+    "ollama": "0.35.1"
+  },
+  "installation": {
+    "freshRegistryInstall": true,
+    "frozenLockfile": true,
+    "packageImportMethod": "copy",
+    "officialBuildExitCode": 0,
+    "rebuildAfterKitFixExitCode": 0,
+    "dependencyFilesUnchanged": true
+  },
+  "repair": {
+    "missingSourceVersionManifestFixed": true,
+    "manifestChecksPassedOnHostAndGuest": 6,
+    "canonicalLFAndCRLFAccepted": true,
+    "modifiedContentsRejected": true
+  },
+  "runtime": {
+    "administrator": false,
+    "passed": true,
+    "total": 6,
+    "tests": [
+      {
+        "test": "FullRuntimeSmoke",
+        "exitCode": 0,
+        "timedOut": false,
+        "durationSeconds": 56.023,
+        "passed": true
+      },
+      {
+        "test": "HeadlessRuntimeSmoke",
+        "exitCode": 0,
+        "timedOut": false,
+        "durationSeconds": 14.579,
+        "passed": true
+      },
+      {
+        "test": "AcpRuntimeSmoke",
+        "exitCode": 0,
+        "timedOut": false,
+        "durationSeconds": 16.312,
+        "passed": true
+      },
+      {
+        "test": "SubagentRuntimeSmoke",
+        "exitCode": 0,
+        "timedOut": false,
+        "durationSeconds": 17.243,
+        "passed": true
+      },
+      {
+        "test": "WebRuntimeSmoke",
+        "exitCode": 0,
+        "timedOut": false,
+        "durationSeconds": 40.67,
+        "passed": true
+      },
+      {
+        "test": "RealModelTools",
+        "exitCode": 0,
+        "timedOut": false,
+        "durationSeconds": 189.83,
+        "passed": true
+      }
+    ],
+    "actualOllamaToolCalls": [
+      "write",
+      "read"
+    ],
+    "firstFiveScenarios": "deterministic local model API; real CLI/SDK/ACP/Web/Windows worker",
+    "sixthScenario": "actual local Ollama and worker; matching file plus write/read result events"
+  },
+  "model": {
+    "name": "qwen3:0.6b",
+    "digest": "7df6b6e09427a769808717c0a93cadc4ae99ed4eb8bf5ca557c90846becea435",
+    "scope": "functional checks; not complex-task quality certification"
+  },
+  "acl": {
+    "passedCanaryChecks": 13,
+    "plannedFiles": 156721,
+    "ordinaryDirectories": 15682,
+    "links": 8778,
+    "hardLinkedFiles": 0,
+    "allFileAclsCertified": false
+  },
+  "localPolicyChecks": [
+    {
+      "test": "local-network",
+      "passed": true,
+      "timedOut": false,
+      "exitCode": 0
+    },
+    {
+      "test": "clean-composition",
+      "passed": true,
+      "timedOut": false,
+      "exitCode": 0
+    },
+    {
+      "test": "windows-source-manifest",
+      "passed": true,
+      "timedOut": false,
+      "exitCode": 0
+    }
+  ],
+  "cyrillicFileNameAndContent": {
+    "passed": true,
+    "operations": [
+      "write",
+      "read",
+      "glob",
+      "grep"
+    ],
+    "scope": "Actual SDK and Windows worker write/read/glob/grep with Cyrillic filename and content; deterministic model"
+  },
+  "coldUserLaunch": {
+    "passed": true,
+    "administrator": false,
+    "launcher": "Start-LocalHarness.ps1 -Profile headless",
+    "DSH_TELEMETRY_DISABLED_set": false,
+    "exitCode": 0,
+    "timedOut": false,
+    "fileMatches": true,
+    "durationSeconds": 299.88
+  },
+  "keyboardAfterReboot": {
+    "englishInputMethod": "0409:00000409",
+    "russianInputMethod": "0419:00000419",
+    "persisted": true,
+    "russianLanguageTag": "ru"
+  },
+  "virtualMachine": {
+    "ramMiB": 6144,
+    "dynamicDiskGiB": 100,
+    "matrixVirtualCpus": 4,
+    "coldLaunchVirtualCpus": 2,
+    "coldLaunchParavirtualization": "Hyper-V",
+    "coldLaunchHostIoCache": true,
+    "guestAdditionsInstalled": false,
+    "initialMinimalParavirtualizationGuestHungAfterReboot": true,
+    "rootCauseEstablished": false,
+    "hostHyperVDisabled": false
+  },
+  "network": {
+    "externalIPv4AndIPv6BlockedDuringRuntime": true,
+    "loopbackAllowed": true,
+    "hostNatManagementAndLocalDhcpExcepted": true,
+    "positiveExternalTcpControlConnectedBeforeBlock": true,
+    "sameControlBlockedAfterBlock": true,
+    "completeNativeUdpChildProcessAudit": false
+  },
+  "verificationContext": "Fresh ordinary-user WinRM logon. Web checked by authenticated HTTP API, not every browser screen. Autonomous service and Task Scheduler not validated.",
+  "knownBroadSuiteLimits": {
+    "sdkContractsHistorical": {
+      "passed": 110,
+      "failed": 4,
+      "total": 114
+    },
+    "fullUpstreamSuiteClaimedGreen": false
+  },
+  "privateEvidence": {
+    "publicRawSessionsOrTokensIncluded": false,
+    "verificationSummarySHA256": "c101541bc83f31a6fae8d50c70e9bbc501ab9333e928b4b038c559768934761d"
+  }
+}

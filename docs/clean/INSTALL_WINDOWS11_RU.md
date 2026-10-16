@@ -124,7 +124,7 @@ Initialize создаёт два обычных пользователя, выд
 & C:\DSH\kit\Run-Verification.ps1
 ```
 
-Итог — C:\DSH\logs\verification-latest.json. Скрипты поддерживают сборку из исходников и прежний runtime layout; запуск новых путей на чистой VM ещё должен быть отдельно подтверждён. Для SDK/ACP используйте Run-Harness.ps1 с -Profile sdk или acp под DSHAudit. Широкие команды агента, внешний MCP и общий web fetch запрещены; служба без интерактивного входа пока не подтверждена.
+Итог — C:\DSH\logs\verification-latest.json. Установка из исходников на новой Windows 11 и 6/6 сценариев прошли проверку; условия, обход недоступного GitHub clone через точный bundle и ограничения приведены в [результатах](TEST_RESULTS_RU.md). Для SDK/ACP используйте Run-Harness.ps1 с -Profile sdk или acp под DSHAudit. Широкие команды агента, внешний MCP и общий web fetch запрещены; автономная служба/Task Scheduler пока не подтверждены.
 
 ## Обновления и автономный сервер
 

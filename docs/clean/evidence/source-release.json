@@ -39,6 +39,6 @@
     "compiledSdkModuleImported": true,
     "programsWeightsPayloadAndNodeModulesInGit": false
   },
-  "newSourceInstallationOnCleanVM": "NOT independently rerun. Previous runtime VM tests are historical evidence, not certification of the new manual source-install procedure.",
+  "newSourceInstallationOnCleanVM": "Historical host preparation record. Fresh Windows source installation and runtime results are recorded in clean-source-vm.json.",
   "securityAudit": "Known-private-value and pattern scan passed before commit; final full-object audit and SHA are supplied in the local handoff."
 }
